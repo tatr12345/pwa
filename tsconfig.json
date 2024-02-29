@@ -19,10 +19,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "paths": {
-      "@assets/*": ["src/assets/*"]
-    },
+    "jsx": "react-jsx"
   },
   "include": ["next-env.d.ts", "**/*.d.ts", "**/*.ts", "**/*.tsx", "config.js", "src"],
   "exclude": ["node_modules", ".next", ".idea"]
