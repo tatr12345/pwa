@@ -3,31 +3,30 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom"
-import 'bootstrap/dist/css/bootstrap.min.css';
-import PageMain from './routes/main';
-import PageList from './routes/list';
-import PageImages from './routes/images';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import PageMain from './routes/main'
+import PageList from './routes/list'
+import PageImages from './routes/images'
 
 function App() {
-  // const router = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     element: <PageMain />
-  //   },
-  //   {
-  //     path: "/list",
-  //     element: <PageList />
-  //   },
-  //   {
-  //     path: "/images",
-  //     element: <PageImages />
-  //   },
-  // ])
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <PageMain />
+    },
+    {
+      path: "/list",
+      element: <PageList />
+    },
+    {
+      path: "/images",
+      element: <PageImages />
+    },
+  ])
   
   return (
     <div className='bg-dark' style={{ width: '100vw', height: '100vh' }}>
-      <img src='./img1.png' alt="" />
-      {/* <RouterProvider router={router} /> */}
+      <RouterProvider router={router} />
     </div>
   )
 }
