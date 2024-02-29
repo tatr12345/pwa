@@ -10,7 +10,7 @@ const PageImages = () => {
           <img src={img1} alt="" />
         </div>
         <div className="col-6">
-          <img src={img2} alt="" />
+          <img src={img1} alt="" />
         </div>
       </div>
     </div>

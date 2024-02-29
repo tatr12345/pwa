@@ -77,4 +77,28 @@ self.addEventListener('message', (event) => {
   }
 });
 
+const CACHE_NAME = "requests-cache"
+
+self.addEventListener("fetch", event => {
+  async function withCache() {
+    const cache = await caches.open(CACHE_NAME);
+    const cachedResponse = await cache.match(event.request.url);
+
+    if (navigator.onLine) {
+      const fetchResponse = await fetch(event.request.url)
+      cache.put(event.request.url, fetchResponse.clone())
+      return fetchResponse
+    } else {
+      if (cachedResponse) {
+        return cachedResponse
+      } else {
+        const networkResponse = await fetch(event.request)
+        return networkResponse
+      }
+    }
+  }
+
+  event.respondWith(withCache());
+});
+
 // Any other custom service worker logic can go here.
