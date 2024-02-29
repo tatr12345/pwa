@@ -9,24 +9,25 @@ import PageList from './routes/list';
 import PageImages from './routes/images';
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <PageMain />
-    },
-    {
-      path: "/list",
-      element: <PageList />
-    },
-    {
-      path: "/images",
-      element: <PageImages />
-    },
-  ])
+  // const router = createBrowserRouter([
+  //   {
+  //     path: "/",
+  //     element: <PageMain />
+  //   },
+  //   {
+  //     path: "/list",
+  //     element: <PageList />
+  //   },
+  //   {
+  //     path: "/images",
+  //     element: <PageImages />
+  //   },
+  // ])
   
   return (
     <div className='bg-dark' style={{ width: '100vw', height: '100vh' }}>
-      <RouterProvider router={router} />
+      <img src='./img1.png' alt="" />
+      {/* <RouterProvider router={router} /> */}
     </div>
   )
 }
