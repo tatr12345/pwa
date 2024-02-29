@@ -5,10 +5,10 @@ const PageImages = () => {
     <div className="container-fluid">
       <div className="row align-items-center justify-content-center">
         <div className="col-6">
-          <img src='' alt="" />
+          {/* <img src='./img1.png' alt="" /> */}
         </div>
         <div className="col-6">
-          <img src='' alt="" />
+          {/* <img src='./img2.png' alt="" /> */}
         </div>
       </div>
     </div>
