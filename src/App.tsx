@@ -18,6 +18,7 @@ function App() {
 
   return (
     <div className='bg-dark' style={{ width: '100vw', height: '100vh' }}>
+      <button type="button" className="btn btn-primary">Primary</button>
       <div className="container-fluid text-white">
         {list.map((el: any, i) => (
           <div className="row align-items-center justify-content-center" key={`post-${i}`}>
