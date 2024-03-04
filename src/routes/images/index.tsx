@@ -8,13 +8,13 @@ const PageImages = () => {
       <br />
       <div className="row align-items-center justify-content-center">
         <div className="col-10">
-          <img style={{ display: 'block', width: 150, height: 100, objectFit: 'cover' }} src={img1} alt="" />
+          <img style={{ display: 'block', width: 150, height: 100, objectFit: 'cover' }} src={img1} alt="1" />
         </div>
       </div>
       <br />
       <div className="row align-items-center justify-content-center">
         <div className="col-10">
-          <img style={{ display: 'block', width: 150, height: 100, objectFit: 'cover' }} src={img2} alt="" />
+          <img style={{ display: 'block', width: 150, height: 100, objectFit: 'cover' }} src={img2} alt="11" />
         </div>
       </div>
     </div>
