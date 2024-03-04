@@ -6,13 +6,15 @@ const PageImages = () => {
   return (
     <div className="container">
       <br />
+      <div className="row align-items-center justify-content-center">
+        <div className="col-10">
+          <img style={{ display: 'block', width: 150, height: 100, objectFit: 'cover' }} src={img1} alt="" />
+        </div>
+      </div>
       <br />
       <div className="row align-items-center justify-content-center">
-        <div className="col-3">
-          <img src={img1} alt="" />
-        </div>
-        <div className="col-3">
-          <img src={img1} alt="" />
+        <div className="col-10">
+          <img style={{ display: 'block', width: 150, height: 100, objectFit: 'cover' }} src={img2} alt="" />
         </div>
       </div>
     </div>

@@ -23,7 +23,7 @@ const PageApi = () => {
         <br />
         <br />
         {data &&
-          <div className="col-3">{`${data.first_name} ${data.last_name}`}</div>
+          <div className="col-8">{`${data.first_name} ${data.last_name}`}</div>
         }
       </div>
     </div>
