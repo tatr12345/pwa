@@ -4,20 +4,24 @@ import { Link } from "react-router-dom"
 const PageMain = () => {
   return (
     <div className="container">
-      <div className="row align-items-center">
-        <div className="col-4">
-          <div className="row align-items-center">
-            <div className="col-12">
-              <Link to={`list`}>
-                <span className="btn btn-primary text-light">List</span>
-              </Link>
-            </div>
-            <div className="col-12">
-              <Link to={`images`}>
-                <span className="btn btn-primary text-light">Images</span>
-              </Link>
-            </div>
-          </div>
+      <br />
+      <br />
+      <div className="row justify-content-center">
+        <div className="col-4 justify-content-center">
+          <span className="text-center text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, dolore ipsa. Molestiae in ut tenetur!</span>
+        </div>
+      </div>
+      <br />
+      <div className="row justify-content-center">
+        <div className="col-1 justify-content-center">
+          <Link to={`api`}>
+            <span className="btn btn-primary text-light">Api</span>
+          </Link>
+        </div>
+        <div className="col-1 justify-content-center">
+          <Link to={`images`}>
+            <span className="btn btn-primary text-light">Images</span>
+          </Link>
         </div>
       </div>
     </div>

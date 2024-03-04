@@ -5,7 +5,7 @@ import {
 } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import PageMain from './routes/main'
-import PageList from './routes/list'
+import PageApi from './routes/api'
 import PageImages from './routes/images'
 
 function App() {
@@ -15,8 +15,8 @@ function App() {
       element: <PageMain />
     },
     {
-      path: "/list",
-      element: <PageList />
+      path: "/api",
+      element: <PageApi />
     },
     {
       path: "/images",
