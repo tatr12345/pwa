@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "target": "es5",
     "lib": [
       "dom",
@@ -21,6 +20,8 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["next-env.d.ts", "**/*.d.ts", "**/*.ts", "**/*.tsx", "config.js"],
-  "exclude": ["node_modules", ".next", ".idea"]
+  "include": [
+    "src"
+  ],
+  "extends": "./tsconfig.paths.json" 
 }

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react"
 import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 const PageApi = () => {
   const [data, setData] = useState<any>()
@@ -17,13 +17,17 @@ const PageApi = () => {
   }, [])
 
   return (
-    <div className="container-fluid text-white text-center">
-      <div className="row align-items-center justify-content-center">
-        <br />
-        <br />
-        <br />
+    <div className='container'>
+      <br />
+      <div className='row '>
         {data &&
-          <div className="col-8">{`${data.first_name} ${data.last_name}`}</div>
+          <>
+            <div className="col-2" />
+            <div className='col-8 text-white text-center'>
+              {`${data.first_name} ${data.last_name}`}
+            </div>
+            <div className="col-2" />
+          </>
         }
       </div>
     </div>

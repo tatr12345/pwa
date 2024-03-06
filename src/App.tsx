@@ -2,28 +2,40 @@ import React from 'react'
 import {
   createBrowserRouter,
   RouterProvider,
-} from "react-router-dom"
+} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import PageMain from './routes/main'
+import { store } from '@/store/_store'
 import PageApi from './routes/api'
 import PageImages from './routes/images'
+import PageMain from './routes/main'
+import { Provider } from 'react-redux'
+import PageAuth from './routes/auth'
+import { useStartupRequestUserInfo } from './utils/useStartupRequestUserInfo'
+import { useCreateDevicePushToken } from './utils/useCreateDevicePushToken'
 
 function App() {
+  useStartupRequestUserInfo()
+  useCreateDevicePushToken()
+
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: '/',
       element: <PageMain />
     },
     {
-      path: "/api",
+      path: '/api',
       element: <PageApi />
     },
     {
-      path: "/images",
+      path: '/images',
       element: <PageImages />
     },
+    {
+      path: '/auth',
+      element: <PageAuth />
+    },
   ])
-  
+
   return (
     <div className='bg-dark' style={{ width: '100vw', height: '100vh' }}>
       <RouterProvider router={router} />
@@ -31,4 +43,8 @@ function App() {
   )
 }
 
-export default App
+export default () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+)
