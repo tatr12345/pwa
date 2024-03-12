@@ -33,11 +33,6 @@ const PageAuth = () => {
     dispatch(clearPush())
     dispatch(clearUser())
   }
-
-  const handleWeb = () => {
-    navigator.credentials.get()
-  }
-
   return (!info
     ? <div className='container'>
       <br />
@@ -56,9 +51,6 @@ const PageAuth = () => {
               </div>
               <br />
               <button type="submit" className="btn btn-primary">Submit</button>
-              <div>
-                <button type="button" className="btn btn-primary" onClick={handleWeb}>Web</button>
-              </div>
             </div>
           </form>
         </div>
