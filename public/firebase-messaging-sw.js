@@ -5,6 +5,6 @@ self.addEventListener('push', (event) => {
     icon: '/alfa.png', // Replace with your icon path
   }
   event.waitUntil(
-    self.registration.showNotification('PWA push - peero dev api', options)
+    self.registration.showNotification('Уведомление', options)
   )
 })
