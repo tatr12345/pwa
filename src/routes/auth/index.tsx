@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useForm } from 'react-hook-form'
 import { asyncUserAuth, asyncUserInfo } from '@/store/userSlice'
 import { asyncDeviceTokenDelete, clearPush } from "@/store/pushSlice"
 import { clearUser } from "@/store/userSlice"
 import { useAppDispatch, useAppSelector } from "@/store/_store"
-import { CLIENT_ID, CLIENT_SECRET, GRANT_TYPE } from '@/api/service/endpoints'
+import {api, CLIENT_ID, CLIENT_SECRET, GRANT_TYPE} from '@/api/service/endpoints'
+import {api_webauthnAuth, api_webauthnAuthOptions} from "@/api/webauthn";
 
 const PageAuth = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<any>()
@@ -12,16 +13,25 @@ const PageAuth = () => {
   const { info } = useAppSelector(({ user }) => user)
 
   const onSubmit = async (formData: { email: string, password: string }) => {
-    const resAuth = await dispatch(asyncUserAuth({
-      client_id: CLIENT_ID,
-      client_secret: CLIENT_SECRET,
-      grant_type: GRANT_TYPE,
-      username: formData.email,
-      password: formData.password
-    }))
-    if (resAuth.type === 'user/asyncUserAuth/fulfilled') {
-      await dispatch(asyncUserInfo())
-    }
+    // const temp = await api_webauthnAuthOptions({ email: formData.email })
+    let response = await fetch(api.WEBAUTHN_LOGIN_OPTIONS, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify({ email: formData.email })
+    });
+    console.info(response, 'response response response')
+    // const resAuth = await dispatch(asyncUserAuth({
+    //   client_id: CLIENT_ID,
+    //   client_secret: CLIENT_SECRET,
+    //   grant_type: GRANT_TYPE,
+    //   username: formData.email,
+    //   password: formData.password
+    // }))
+    // if (resAuth.type === 'user/asyncUserAuth/fulfilled') {
+    //   await dispatch(asyncUserInfo())
+    // }
   }
 
   const logout = () => {
@@ -33,6 +43,14 @@ const PageAuth = () => {
     dispatch(clearPush())
     dispatch(clearUser())
   }
+
+  // useEffect(() => {
+  //   (async () => {
+  //     const temp = api_webauthnAuth()
+  //     console.info(temp, 'temp temp temp')
+  //   })()
+  // }, [])
+
   return (!info
     ? <div className='container'>
       <br />
@@ -45,10 +63,10 @@ const PageAuth = () => {
                 <input {...register('email')} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                 <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
-              <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Password</label>
-                <input {...register('password')} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
-              </div>
+              {/*<div className="form-group">*/}
+              {/*  <label htmlFor="exampleInputPassword1">Password</label>*/}
+              {/*  <input {...register('password')} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />*/}
+              {/*</div>*/}
               <br />
               <button type="submit" className="btn btn-primary">Submit</button>
             </div>
