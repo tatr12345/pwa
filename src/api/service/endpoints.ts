@@ -10,7 +10,8 @@ export const api = {
   DEVICE_TOKEN_CREATE: `${apiDomain}/api/user/token`,
   DEVICE_TOKEN_DELETE: `${apiDomain}/api/user/token/delete`,
   WEBAUTHN_LOGIN: `${webApiDomain}/auth`,
-  WEBAUTHN_LOGIN_OPTIONS: `${webApiDomain}/auth/options`
+  WEBAUTHN_LOGIN_OPTIONS: `${webApiDomain}/auth/options`,
+  WEBAUTHN_LOGIN_AUTH: `${webApiDomain}/keys`
 } as const
 
 type Keys = keyof typeof api
